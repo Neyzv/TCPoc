@@ -25,23 +25,23 @@ public sealed class MyTcpSession
 public sealed class MyTcpServer
 	: BaseTcpServer<MyTcpSession, MyMessage>
 {
-	protected override MyTcpSession CreateSession(Socket socket) =>
-		new MyTcpSession(socket,
-	        _myCustomMessageEncoder,
-	        _myCustomMessageDecoder,
-	        _myCustomMessageDispatcher,
-	        CancellationToken);
+    protected override MyTcpSession CreateSession(Socket socket) =>
+        new MyTcpSession(socket,
+            _myCustomMessageEncoder,
+            _myCustomMessageDecoder,
+            _myCustomMessageDispatcher,
+            CancellationToken);
 
-	protected override ValueTask OnSessionConnectedAsync(TSession session)
+    protected override ValueTask OnSessionConnectedAsync(TSession session)
     {
-	    Console.WriteLine($"Client '{session.Address}' connected.");
+        Console.WriteLine($"Client '{session.Address}' connected.");
 	    
         return ValueTask.CompletedTask;
     }
     
     protected override ValueTask OnSessionDisconnectedAsync(TSession session)
     {
-	    Console.WriteLine($"Client '{session.Address}' disconnected.");
+        Console.WriteLine($"Client '{session.Address}' disconnected.");
 	    
         return ValueTask.CompletedTask;
     }
