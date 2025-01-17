@@ -8,7 +8,6 @@ To begin you'll need to implement a `IMessageEncoder<TMessage>` which will conve
 Then you'll need to implement a `IMessageDecoder<TMessage>` which will do the opposit job of the `IMessageEncoder<TMessage>`. \
 \
 To finish you must implement the `IMessageDispatcher<TMessage>` who aims to dispatch the received message to the wright handler to achieve the appropriate action. \
-\
 ### Server
 If you need to implement a server, you'll have to extends two classes :
 - BaseSession
