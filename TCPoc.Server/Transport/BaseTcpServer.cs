@@ -38,7 +38,7 @@ public abstract class BaseTcpServer<TSession, TMessage>
     /// Gets a value indicating whether the server is running.
     /// </summary>
     public bool IsRunning =>
-        !_cts.IsCancellationRequested && _socket.Connected && !_disposed;
+        !_cts.IsCancellationRequested && _socket.IsBound && !_disposed;
 
     public BaseTcpServer(IPAddress ipAdress,
         int port,
